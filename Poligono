@@ -1,0 +1,27 @@
+package poligonos;
+
+public abstract class Poligono{
+	
+	//atributos
+	protected int nrolados;
+
+	//constructor y metodo setter
+	public Poligono(int nrolados){
+		this.nrolados=nrolados;
+	}
+
+	//metodo getter
+	public int getLados(){
+		return nrolados;
+	}
+
+	//metodo showData o toString
+	@Override
+	public String toString(){
+		return "El numero de lados del poligono es de: "+nrolados;
+	}
+
+	//metodo abstracto de area
+	public abstract double getArea();
+
+}
