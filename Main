@@ -1,0 +1,89 @@
+package poligonos;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+
+public class Main{
+	
+	//array statico / arreglo de tipo dinamico
+	//todo lo que creamos de tipo estatico puede ser utilizado por toda la clase dentro y fuera de main
+	static ArrayList<Poligono> poligono = new ArrayList<Poligono>();
+	static Scanner entry = new Scanner(Sytem.in);
+
+	//inicializacion del metodo main
+	public static void main(String args[]){
+
+		JOptionPane.showMessageDialog("Bienvenido a Poligonos!");
+		llenarPoligono();
+
+		//mostramos area y datos de cada poligono
+		mostrarResultados();
+
+	}
+	//creamos metodo estatico de llenado de poligono para evitar sobrecargar el metodo main
+
+	public static void llenarPoligono(){
+		//variable local opcion y respuesta
+		char respuesta;
+		int opcion;
+
+		do{
+			do{
+				opcion=Integer.parseInt(JOptionPane.showInputDialog(null,"Digite que poligono desea ingresar\n1.Triangulo\n2.Rectangulo"));
+			}while(opcion<1 || opcion<2);
+
+			//creamos un switch
+			switch(opcion){
+				case 1://llena un triangulo
+				{
+					llenarTriangulo();
+					break;
+				}
+				case 2://llena un rectangulo
+				{
+					llenarRectangulo();
+					break;
+				}
+
+			}
+
+			respuesta=(JoptionPane.showInputDialog(null,"Desea llenar otro poligono?\nY/N").charAt(0);
+
+		while(respuesta=='y' || respuesta=='Y');
+	}
+
+	//llenado de triangulo
+	public static void llenarTriangulo(){
+		double lado1,lado2,lado3;
+
+		lado1=Double.parseDouble(JOptionPane.showInputDialog(null,"Ingrese el lado 1: "));
+		lado2=Double.parseDouble(JOptionPane.showInputDialog(null,"Ingrese el lado 2: "));
+		lado3=Double.parseDouble(JOptionPane.showInputDialog(null,"Ingrese el lado 3: "));
+		
+		Triangulo triangulo = new Triangulo(lado1,lado2,lado3);
+
+		//cargamos un triangulo en el arreglo de poligonos
+		poligono.add(triangulo);
+
+	}
+
+	//lenado de rectangulo
+	public static void llenarRectangulo(lado1,lado2){
+		lado1=Double.parseDouble(JOptionPane.showInputDialog(null,"Ingrese el lado 1: "));
+		lado2=Double.parseDouble(JOptionPane.showInputDialog(null,"Ingrese el lado 2: "));
+
+		Rectangulo rectangulo = new Rectangulo(lado1,lado2);
+
+		//cargamos el rectangulo en el arreglo de poligonos
+		poligono.add(rectangulo);
+		}
+
+	//mostramos arreglo de poligonos
+	public static void mostrarResultados(){
+		for(Poligono poli: poligono){
+			System.out.println("Area: "+poli.getArea());
+			System.out.println("Datos: "+poli.toString());
+			System.out.println("");
+		}
+	}
+}
