@@ -1,0 +1,44 @@
+package poligonos;
+
+public class Triangulo extends Poligono{
+	
+	//atributos
+	private double lado1;
+	private double lado2;
+	private double lado3;
+
+	//constructor
+	public Triangulo(double lado1, double lado2, double lado3){
+		super(3);
+		this.lado1=lado1;
+		this.lado2=lado2;
+		this.lado3=lado3;
+	}
+
+	//metodos getter para cuidar el encapsulamiento de datos de la clase
+	public getLado1(){
+		return lado1;
+	}
+
+		public getLado2(){
+		return lado2;
+	}
+
+		public getLado3(){
+		return lado3;
+	}
+
+	//metodo toString
+	@Override
+	public String toString(){
+		return "El triangulo tiene lado1: "+lado1+"\nlado2: "+lado2+"\nlado3: "+lado3;
+	}
+
+	//metodo abstracto de la clase padre getArea()
+	//utilizaremos la formula de heron
+	@Override
+	public double getArea(){
+		double p = (lado1+lado2+lado3)/2;
+		return.Math.sqrt(p*(p-lado1)*(p-lado2)*(p-lado3))
+	}
+}
