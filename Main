@@ -29,8 +29,8 @@ public class Main{
 
 		do{
 			do{
-				opcion=Integer.parseInt(JOptionPane.showInputDialog(null,"Digite que poligono desea ingresar\n1.Triangulo\n2.Rectangulo"));
-			}while(opcion<1 || opcion<2);
+				opcion=Integer.parseInt(JOptionPane.showInputDialog(null,"Digite que poligono desea ingresar\n1.Triangulo\n2.Rectangulo\n3.Ninguno"));
+			
 
 			//creamos un switch
 			switch(opcion){
@@ -44,8 +44,16 @@ public class Main{
 					llenarRectangulo();
 					break;
 				}
+				case 3://Salir
+				{
+				JOptionPane.showMessageDialog(null,"No se cargara ningun poligono");
+				continue;
+				}
+				default:
+				JOptionPane.showMessageDialog(null,"Ingrese una opcion correcta porfavor");
 
 			}
+			}while(opcion<1 || opcion<2);
 
 			respuesta=(JoptionPane.showInputDialog(null,"Desea llenar otro poligono?\nY/N").charAt(0);
 
